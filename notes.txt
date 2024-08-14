@@ -4,3 +4,4 @@ https://sidorares.github.io/node-mysql2/docs#first-query
 https://victorhuguw-64.medium.com/construindo-uma-rest-api-utilizando-nodejs-express-e-mysql-parte-1-ef25643ab41b
 https://medium.com/@habbema/node-js-apis-0e3544877f43
 https://imasters.com.br/front-end/criando-uma-api-node-em-10-passos-com-express-js
+https://developer.mozilla.org/en-US/docs/Web/HTTP
