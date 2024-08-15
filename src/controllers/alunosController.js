@@ -1,15 +1,21 @@
 import bcrypt from 'bcrypt';
 import { connection } from '../database/mysqlConnection.js';
 
+const permissaoNegada = (req) => (req.userId !== parseInt(req.params.codigo, 10));
+
+const naoPermitido = (response) => {
+  return response.status(403).json({ auth: false, message: 'Operação não permitida!' });
+}
+
 class AlunosController {
-  async listar(request, response) {
+  listar = async (request, response) => {
     console.log('GET /alunos');
 
     const [results] = await connection.query('SELECT codigo, nome, usuario, cpf, matricula, nascimento FROM alunos');
     response.json(results);
   };
 
-  async inserir(request, response) {
+  inserir = async (request, response) => {
     console.log('POST /alunos');
     console.log(request.body);
 
@@ -26,9 +32,13 @@ class AlunosController {
     }
   };
 
-  async atualizar(request, response) {
+  atualizar = async (request, response) => {
     console.log(`PUT /alunos/${request.params.codigo}`);
     console.log(request.body);
+
+    if (permissaoNegada(request)) {
+      return naoPermitido(response);
+    }
 
     const { nome, cpf, matricula, nascimento, usuario, senha } = request.body;
     let fields = [];
@@ -52,8 +62,12 @@ class AlunosController {
     }
   };
 
-  async excluir(request, response) {
+  excluir = async (request, response) => {
     console.log(`DELETE /alunos/${request.params.codigo}`);
+
+    if (permissaoNegada(request)) {
+      return naoPermitido(response);
+    }
 
     const query = `DELETE FROM alunos WHERE codigo = ?`;
     try {
@@ -65,10 +79,14 @@ class AlunosController {
     }
   };
 
-  async exibir(request, response) {
+  exibir = async (request, response) => {
     console.log(`GET /alunos/${request.params.codigo}`);
 
-    const query = `SELECT codigo, nome, usuario, cpf, matricula, nascimento FROM alunos WHERE codigo = ?`;
+    if (permissaoNegada(request)) {
+      return naoPermitido(response);
+    }
+
+    const query = 'SELECT codigo, nome, usuario, cpf, matricula, nascimento FROM alunos WHERE codigo = ?';
     try {
       const [result] = await connection.query(query, [request.params.codigo]);
       response.json(result[0]);
