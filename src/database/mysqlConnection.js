@@ -1,9 +1,11 @@
 import { createConnection } from 'mysql2/promise';
+import { config } from 'dotenv-safe';
+config();
 
 export const connection = await createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Scopi123',
-  port: 3306,
-  database: 'teste_cimol'
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASS,
+  port: process.env.MYSQL_PORT,
+  database: process.env.MYSQL_DB
 });

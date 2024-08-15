@@ -1,4 +1,3 @@
-import { connection } from "../database/mysqlConnection.js";
 import express from 'express';
 import AlunosController from "../controllers/alunosController.js";
 

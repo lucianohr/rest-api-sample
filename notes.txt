@@ -1,7 +1,15 @@
 Links úteis - Referências
 
+Node MySQL 2 package
 https://sidorares.github.io/node-mysql2/docs#first-query
+
+Construindo APIs com Node
 https://victorhuguw-64.medium.com/construindo-uma-rest-api-utilizando-nodejs-express-e-mysql-parte-1-ef25643ab41b
 https://medium.com/@habbema/node-js-apis-0e3544877f43
 https://imasters.com.br/front-end/criando-uma-api-node-em-10-passos-com-express-js
+
+HTTP status code
 https://developer.mozilla.org/en-US/docs/Web/HTTP
+
+JWT (Json Web Token)
+https://www.luiztools.com.br/post/autenticacao-json-web-token-jwt-em-nodejs/?utm_source=google&utm_medium=cpc&utm_campaign=902557428&utm_content=57944124898&utm_term=node%20authentication&gad_source=1&gclid=Cj0KCQjwq_G1BhCSARIsACc7NxoO5UsN3q1hymLx0Wp2ya6C_biGYJ_I0jg1mjwx0uOZmNh18X5IjpsaAhB0EALw_wcB
