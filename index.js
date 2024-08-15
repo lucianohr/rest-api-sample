@@ -15,6 +15,6 @@ app.listen(process.env.APP_PORT, () => {
   console.log(`REST API started on port ${process.env.APP_PORT}`);
 });
 
-app.get('/', async (request,response)=>{
+app.get('/', async (request, response)=>{
   response.send("Hello world");
 });
